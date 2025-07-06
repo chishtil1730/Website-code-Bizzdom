@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizzdom Page</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+<body>
+<img class="image-gradient" src="gradient.png" alt="gradient">
+<div class="layer-blur"></div>
+<div class="container">
+    <header class="header">
+        <a data-aos="fade-right" data-aos-duration="1500" class="logo" href="index.html">BIZZDOM</a>
+
+        <nav class="menu">
+
+            <a  class="club" data-aos="fade-down" data-aos-duration="1500" href="club.html">CLUB</a>
+            <a  class="resources" data-aos="fade-down" data-aos-duration="2000" href="resources.html">BLOG</a>
+            <a  class="events" data-aos="fade-down" data-aos-duration="2500" href="events.html">EVENTS</a>
+            <a  class="members" data-aos="fade-down" data-aos-duration="3000" href="members.html">MEMBERS</a>
+
+        </nav>
+        <button data-aos="fade-left" data-aos-duration="1500" class="btn-signing">SIGN IN</button>
+    </header>
+    <main>
+        <div data-aos="zoom-in" data-aos-duration="1500" class="content">
+            <div class="tag-box">
+                <div class="tag">
+                    BIZZDOM
+                </div>
+            </div>
+
+            <h1 class="heading">
+                HOW YOU CAN<br>JOIN US
+            </h1>
+
+            <p class="description">Bizzdom is an exciting club for anyone with a passion for business!<br> It’s the perfect place to learn teamwork, and take part in Bizzness.Wheather you dream of being the next big entrepreneur or just want to sharpen your skills, Bizzdom is the place to make it happen!</p>
+
+            <div class="buttons">
+                <a data-aos="fade-right" data-aos-duration="2000" href="#" class="btn-contact">Contact</a>
+                <a data-aos="fade-right" data-aos-duration="1500" href="#" class="btn-signing-getStarted">GetStarted</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="robot-page">
+        <div data-aos="fade-right" data-aos-duration="1500" class="info-card">
+            <img src="chishti.png" alt="Member Photo" class="member-photo">
+            <div class="info-details">
+                <h2 class="memberName">Chishti</h2>
+                <p class="designation">(Design Team)</p>
+                <p class="uni">VIT-AP UNIVERSITY</p>
+                <p class="hobbies">Passionate Editor AE</p>
+                <p class="mail">imchishti@gmail.com</p>
+            </div>
+        </div>
+        <spline-viewer data-aos="fade-up" data-aos-duration="1500" class="robot" url="https://prod.spline.design/czDV3jL4H7NhKyZO/scene.splinecode"></spline-viewer>
+    </div>
+
+    <spline-viewer data-aos="fade-up" data-aos-duration="1500" class="keyboard" url="https://prod.spline.design/RcYTEJ3GVMavZgsH/scene.splinecode"></spline-viewer>
+</div>
+
+
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.10/build/spline-viewer.js"></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', "Roboto Light", Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #171414;
+    color: #e7e7e7;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow: scroll;
+}
+
+/* Gradient and Layer Blur effect */
+.image-gradient {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+
+}
+
+.layer-blur {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    opacity: 100%;
+    box-shadow: 0 0 700px 15px white;
+    transform: rotate(-30deg);
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: -1;
+}
+.layer-blur:hover{
+    opacity: 0;
+}
+/* Container */
+.container {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    top: -3%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: 0.7s ease-in-out;
+}
+.header-scrolled{
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    background: rgba(23, 20, 20, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+}
+
+/*
+Bizzdom logo
+ */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.logo{
+    font-family: "Baskerville Old Face",sans-serif;
+    top: 10%;
+    letter-spacing: 0.08rem;
+    transition: 0.4s ease-in-out;
+    text-decoration: none;
+    font-size: 2em;
+    color: inherit;
+}
+.logo-scrolled{
+    font-family: "Baskerville Old Face",sans-serif;
+    transition: color 1s ease-in-out;
+    color: #c5a876;
+    text-shadow: 0 0 35px navajowhite;
+}
+.logo:hover{
+    text-shadow: 0 0 20px navajowhite;
+}
+.menu-scrolled{
+    transition: 0.3s ease-in-out;
+    text-shadow: 0 0 10px navajowhite;
+    color: #f7e7ce;
+}
+.members{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 55%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+}
+.members:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.club{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 33%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+}
+.club:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.resources{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 40%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+}
+.resources:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.events{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 47%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+}
+.events:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.btn-signing {
+    position: fixed;
+    right: 1.5rem;
+    background-color: #a7a7a7;
+    color: black;
+    font-family: "Altone Trial",sans-serif;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.4s ease-in-out;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.btn-signing:hover {
+    transition: 0.4s ease-in-out;
+    background-color: #ffffff;
+    box-shadow: 0 1px 28px rgba(255,255,255,0.4);
+}
+.btn-signing-scrolled{
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 1px 20px rgba(255,255,255,0.4);
+}
+
+
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(90vh - 6rem);
+    padding: 2rem;
+}
+
+.content {
+    max-width: 40rem;
+    margin: 0;
+    padding: 2rem 0 0 2rem;
+    z-index: 999;
+    text-align: left;
+}
+
+/*Bizzdom gradient box*/
+.tag-box {
+    position: relative;
+    bottom: -3rem;
+    width: 18rem;
+    height: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 50px;
+    background: linear-gradient(to right, #b6b6ff, #8d5c8d, #c4b8bc, #c0cfd4, #b6b6ff);
+    background-size: 200%;
+    animation: animationGradient 6s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    padding: 0.5rem;
+    z-index: 800;
+}
+
+@keyframes animationGradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+.tag-box .tag {
+    z-index: 800;
+    position: absolute;
+    font-family: "Altone Trial", serif;
+    inset: 3px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+
+    /* Glassmorphism effect for tag */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tag:hover {
+    color: saddlebrown;
+    text-shadow: 0 0 10px navajowhite;
+    background: linear-gradient(to right, #b6b6ff, #8d5c8d, #c4b8bc, #c0cfd4, #b6b6ff);
+    transition: 0.2s ease-in-out;
+}
+.heading{
+    position: relative;
+    bottom: -3rem;
+}
+
+.content h1 {
+    font-family: "Altone Trial",sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    line-height: 1.2;
+    text-shadow: 0 0 10px navajowhite;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.20s ease-in-out;
+}
+
+.content h1:hover{
+    text-shadow: 0 0 20px navajowhite;
+}
+.description{
+    position: relative;
+    bottom: -3rem;
+    transition: all 0.4s ease-in;
+}
+.description:hover{
+    scale: 1.05;
+    transition:  all 0.4s ease-out;
+}
+.content p {
+    font-size: 1rem;
+    font-family: "Altone Trial",sans-serif;
+    letter-spacing: 0.1rem;
+    color: #b2b2b2;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    text-align: left;
+    transition: 0.2s ease-in-out;
+}
+.content p:hover{
+    color: lightgrey;
+    text-shadow: 0 0 12px #e7e7e7;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn-contact{
+    position: absolute;
+    left: 2rem;
+    bottom: -5.3rem;
+    opacity: 100%;
+    color: white;
+    font-family: "Altone Trial",sans-serif;
+    text-decoration: none;
+    border: 2px solid #2a2a2a;
+    padding: 0.7rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    transition: background-color 0.2s ease-in;
+    z-index: 800;
+}
+.btn-contact:hover{
+    transition: 0.4s ease-in-out;
+    background-color: lightgrey;
+    color: #171414;
+    font-weight: bold;
+    box-shadow: 0 1px 20px rgba(255,255,255,0.4);
+}
+.btn-signing-getStarted{
+    position: absolute;
+    z-index: 800;
+    left: 12rem;
+    bottom: -5rem;
+    font-family: "Altone Trial",sans-serif;
+    text-decoration: none;
+    background-color: lightgrey;
+    color: black;
+    padding: 0.6rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+.btn-signing-getStarted:hover{
+    box-shadow: 0 1px 20px rgba(255,255,255,0.4);
+    transition: 0.4s ease-in-out;
+    background-color: white;
+    text-shadow: 0 0 30px navajowhite;
+}
+
+/*Details Member Box*/
+.memberName{
+    font-family: "Altone Trial",sans-serif;
+}
+.memberName:hover{
+    color: #c5a876;
+    transition: 0.19s ease;
+    scale: 1.10;
+    text-shadow: 0 0 13px #f7e7ce;
+}
+
+.uni{
+    font-family: "Altone Trial",sans-serif;
+}
+.uni:hover{
+    transition: 0.19s ease;
+    scale: 1.05;
+    text-shadow: 0 0 10px #cfa587;
+}
+.mail{
+    font-family: "Altone Trial",sans-serif;
+}
+.mail:hover{
+    transition: 0.19s ease;
+    scale: 1.05;
+    text-shadow: 0 0 10px #cfa587;
+}
+
+.hobbies{
+    font-family: "Altone Trial",sans-serif;
+}
+.hobbies:hover{
+    transition: 0.19s ease;
+    scale: 1.05;
+    text-shadow: 0 0 10px #cfa587;
+}
+
+.designation{
+    font-family: "Altone Trial",sans-serif;
+}
+.designation:hover{
+    transition: 0.19s ease;
+    scale: 1.10;
+    text-shadow: 0 0 10px navajowhite;
+}
+
+
+/* Info card container */
+.info-card {
+    position: absolute;
+    top: 7rem;
+    left: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #2d2d2d;
+    border-radius: 15px;
+    padding: 1rem;
+
+    color: white;
+    width: 300px;
+    height: 230px;
+    gap: 1rem;
+    background: rgba(134, 129, 129, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+/* Member photo inside the card */
+.member-photo {
+
+    border-radius: 50%;
+    height: 80px;
+    left: 2rem;
+    width: 80px;
+    object-fit: cover;
+    transition: 0.2s ease;
+}
+
+.member-photo:hover{
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 8px navajowhite;
+    align-items: flex-end;
+    text-align: right;
+    scale: 1.2;
+    left: 3rem;
+    top: -30%;
+    border-radius: 12px;
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+}
+
+/* Info details inside the card */
+.info-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    font-family: 'PT Serif', serif;
+}
+
+.info-details h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.info-details p {
+    font-size: 0.9rem;
+    color: #b2b2b2;
+    margin: 0.2rem 0;
+}
+
+.info-details p:first-of-type {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+
+
+.robot {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+.keyboard{
+    position: absolute;
+    bottom: 26%;
+    right: -30%;
+}
+
+/* Container for the robot page */
+.robot-page {
+    top: 10%;
+    position: relative;
+    bottom: 60%;
+    height: 100vh;
+    background-color: #171414;
+}
+
+
+@media (max-width: 1200px) {
+    header{
+        padding: 1rem 0.1rem;
+    }
+    nav{
+        display: none;
+    }
+    header h1{
+        font-size: 2rem;
+        left: 0;
+    }
+    .heading{
+        top: 1rem;
+    }
+    .btn-signing{
+        padding :0.6rem;
+        font-family: "Altone Trial", serif;
+    }
+    .content{
+        margin-top: 25rem;
+
+    }
+    .keyboard{
+        top: -25%;
+        left: 0;
+
+    }
+    .robot{
+        width: 100%;
+        height: 100%;
+
+        top: -27%;
+        left: -5%;
+    }
+    .content{
+        max-width: 30rem;
+        margin-left: 10%;
+    }
+    .tag-box{
+        width: 12rem;
+    }
+    .content h1{
+        font-size: 2.5rem;
+    }
+    .btn-signing-getStarted{
+        margin-left: 0;
+        left: 8rem;
+        width: 13rem;
+        height: 3rem;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .btn-contact{
+        left: -2rem;
+
+    }
+    .info-card {
+        position: absolute;
+        top: 24rem;
+        left: 5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: #2d2d2d;
+        border-radius: 15px;
+        padding: 1rem;
+
+        color: white;
+        width: 350px;
+        gap: 1rem;
+        background: rgba(134, 129, 129, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+        z-index: 999;
+    }
+}
