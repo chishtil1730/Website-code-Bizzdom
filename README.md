@@ -7,7 +7,7 @@ The project demonstrates advanced use of web technologies for creating immersive
 
 ## 🌐 Live Website
 Check out the hosted version here:  
-👉 [Bizzdom Website](https://chishtil1730.github.io/Website-code-Bizzdom/website2/index.html)  
+👉 [Bizzdom Website]( https://chishtil1730.github.io/Website-code-Bizzdom/website2/index.html)  
 
 
 ---
