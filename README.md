@@ -24,7 +24,7 @@ This project reflects my focus on combining creativity with technology — from 
 - **HTML5** – Base structure of the site.
 - **CSS3** – Styling, layouts, and animations.
 - **JavaScript (ES6)** – Functionality and interactivity.
-- **3D Libraries / Frameworks** (e.g., *Three.js*, WebGL, or similar — update as needed).
+- **3D Libraries / Frameworks** (Used Spline3D).
 - **GitHub Pages** – Hosting and deployment.
 
 ---
