@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClubPage</title>
+  <link rel="stylesheet" href="clubStyling.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+<img class="image-gradient2" src="gradient.png" alt="gradient">
+<div class="layer-blur2"></div>
+<div class="backround-members fade-in">
+    <div class="workplace-box" id="workplaceBox">
+        <div class="workplace">
+            <spline-viewer
+                    id="splineViewer"
+                    url="https://prod.spline.design/6pDF1mGg8Ia4JX1K/scene.splinecode"
+            ></spline-viewer>
+        </div>
+    </div>
+
+<!--    <spline-viewer url="https://prod.spline.design/6pDF1mGg8Ia4JX1K/scene.splinecode"></spline-viewer>-->
+</div>
+<div class="clubContainer">
+<header class="header" data-aos="fade-down" data-aos-duration="1000">
+    <a data-aos="fade-right" data-aos-duration="1500" class="logo" href="index.html">BIZZDOM</a>
+
+    <nav class="menu">
+
+        <a  class="club" data-aos="fade-down" data-aos-duration="1500" href="club.html">CLUB</a>
+        <a  class="resources" data-aos="fade-down" data-aos-duration="1500" href="resources.html">BLOG</a>
+        <a  class="events" data-aos="fade-down" data-aos-duration="1500" href="events.html">EVENTS</a>
+        <a  class="members" data-aos="fade-down" data-aos-duration="1500" href="members.html">MEMBERS</a>
+
+    </nav>
+    <button data-aos="fade-left" data-aos-duration="1500" class="btn-signing">SIGN IN</button>
+</header>
+</div>
+
+<div class="menu-wrapper" data-aos="fade-down" data-aos-duration="1500">
+    <div class="menu-background"></div> <!-- Rectangle for background -->
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+    AOS.init();
+</script>
+
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.18/build/spline-viewer.js"></script>
+
+
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+    });
+</script>
+
+
+<script>
+    const viewer = document.getElementById('splineViewer');
+    const box = document.getElementById('workplaceBox');
+
+    viewer.addEventListener('load', () => {
+        box.style.transition = "opacity 1s ease-in-out";
+        box.style.opacity = "1";
+    });
+</script>
+
+
+</body>
+</html>

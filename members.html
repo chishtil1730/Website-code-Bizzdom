@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MembersPage</title>
+  <link rel="stylesheet" href="memberStyling.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+<img class="image-gradient2" src="gradient.png" alt="gradient">
+<div class="layer-blur2"></div>
+<div class="prevent">
+  <div class="backround-members fade-in">
+    <spline-viewer url="https://prod.spline.design/w3FH0zIUTzMF2rr9/scene.splinecode"></spline-viewer>
+  </div>
+</div>
+<div class="clubContainer">
+  <header class="header" data-aos="fade-down" data-aos-duration="1000">
+    <a data-aos="fade-right" data-aos-duration="1500" class="logo" href="index.html">BIZZDOM</a>
+
+    <nav class="menu">
+
+      <a  class="club" data-aos="fade-down" data-aos-duration="1500" href="club.html">CLUB</a>
+      <a  class="resources" data-aos="fade-down" data-aos-duration="1500" href="resources.html">BLOG</a>
+      <a  class="events" data-aos="fade-down" data-aos-duration="1500" href="events.html">EVENTS</a>
+      <a  class="members" data-aos="fade-down" data-aos-duration="1500" href="members.html">MEMBERS</a>
+
+    </nav>
+    <button data-aos="fade-left" data-aos-duration="1500" class="btn-signing">SIGN IN</button>
+  </header>
+</div>
+
+
+<div class="menu-wrapper" data-aos="fade-down" data-aos-duration="1500">
+  <div class="menu-background"></div> <!-- Rectangle for background -->
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.14/build/spline-viewer.js"></script>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+
+</body>
+</html>

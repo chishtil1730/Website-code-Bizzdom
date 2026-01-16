@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EventPage</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="eventStyling.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <script src="eventScript.js" defer></script>
+</head>
+<body>
+
+<div class="backround-3d fade-in">
+  <spline-viewer loading="lazy" url="https://prod.spline.design/bZAo72R1DW3W80AW/scene.splinecode"></spline-viewer>
+</div>
+
+
+
+<img class="image-gradient2" src="gradient.png" alt="gradient" loading="lazy">
+<div class="layer-blur2"></div>
+
+<div class="clubContainer">
+  <header class="header" data-aos="fade-down" data-aos-duration="1000">
+    <a data-aos="fade-right" data-aos-duration="1500" class="logo" href="index.html">BIZZDOM</a>
+
+    <nav class="menu">
+      <a class="club" data-aos="fade-down" data-aos-duration="1500" href="club.html">CLUB</a>
+      <a class="resources" data-aos="fade-down" data-aos-duration="1500" href="resources.html">BLOG</a>
+      <a class="events" data-aos="fade-down" data-aos-duration="1500" href="events.html">EVENTS</a>
+      <a class="members" data-aos="fade-down" data-aos-duration="1500" href="members.html">MEMBERS</a>
+    </nav>
+    <button data-aos="fade-left" data-aos-duration="1500" class="btn-signing">SIGN IN</button>
+  </header>
+</div>
+
+<div class="menu-wrapper" data-aos="fade-down" data-aos-duration="1500">
+  <div class="menu-background"></div>
+</div>
+
+<div class="white-box"></div>
+
+<div class="wrapper">
+  <button class="carousel-btn carousel-btn-left fa-solid fa-angle-left" data-aos="fade-up" data-aos-duration="3000"></button>
+  <div class="carousel-container">
+    <ul class="carousel">
+      <li class="card">
+        <div class="img">
+          <img src="event3.jpg" alt="img" loading="lazy">
+        </div>
+        <h2 class="title">Why is it Benz?</h2>
+        <span class="title2">Reasons why Benz is considered more than a luxury.</span>
+        <span class="date"><br>Date: 12-12-2025</span>
+        <div class="buttons">
+          <a href="#" class="register-button">Register Now</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="img">
+          <img src="event1.jpg" alt="img" loading="lazy">
+        </div>
+        <h2 class="title">This perfume costs a lot</h2>
+        <span class="title2">Why are modern day perfume so expensive?</span>
+        <span class="date2"><br>Date: 13-12-2025</span>
+        <div class="buttons">
+          <a href="#" class="register-button2">Register Now</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="img">
+          <img src="event2.jpg" alt="img" loading="lazy">
+        </div>
+        <h2 class="title">Business Professionals</h2>
+        <span class="title2">A conference meeting with experienced professionals.</span>
+        <span class="date3"><br>Date: 14-12-2025</span>
+        <div class="buttons">
+          <a href="#" class="register-button3">Register Now</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <button class="carousel-btn carousel-btn-right fa-solid fa-angle-right" data-aos="fade-up" data-aos-duration="3000"></button>
+</div>
+
+<div class="wrapper wrapper2">
+  <button class="carousel-btn carousel-btn-left fa-solid fa-angle-left" data-aos="fade-up" data-aos-duration="3000"></button>
+  <div class="carousel-container">
+    <ul class="carousel">
+      <li class="card">
+        <div class="img">
+          <img src="event3.jpg" alt="img" loading="lazy">
+        </div>
+        <h2 class="title">Why is it Benz?</h2>
+        <span class="title2">Reasons why Benz is considered more than a luxury.</span>
+        <span class="date"><br>Date: 12-12-2025</span>
+        <div class="buttons">
+          <a href="#" class="register-button">Register Now</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="img">
+          <img src="event1.jpg" alt="img" loading="lazy">
+        </div>
+        <h2 class="title">This perfume costs a lot</h2>
+        <span class="title2">Why are modern day perfume so expensive?</span>
+        <span class="date2"><br>Date: 13-12-2025</span>
+        <div class="buttons">
+          <a href="#" class="register-button2">Register Now</a>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="img">
+          <img src="event2.jpg" alt="img" loading="lazy">
+        </div>
+        <h2 class="title">Business Professionals</h2>
+        <span class="title2">A conference meeting with experienced professionals.</span>
+        <span class="date3"><br>Date: 14-12-2025</span>
+        <div class="buttons">
+          <a href="#" class="register-button3">Register Now</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <button class="carousel-btn carousel-btn-right fa-solid fa-angle-right" data-aos="fade-up" data-aos-duration="3000"></button>
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.14/build/spline-viewer.js"></script>
+
+<script>
+  // Universal Spline Mouse Tracking Fix
+  class SplineMouseFixer {
+    constructor() {
+      this.splineCanvas = null;
+      this.highZIndexElements = new Set();
+      this.interactiveSelectors = [
+        'a', 'button', 'input', 'select', 'textarea',
+        '[onclick]', '[onmouseover]', '[onmouseout]',
+        '.clickable', '.interactive', '.btn', '.button',
+        '.logo', '.menu', '.nav', '.navigation'
+      ];
+      this.init();
+    }
+
+    init() {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => this.setup());
+      } else {
+        this.setup();
+      }
+      window.addEventListener('load', () => {
+        setTimeout(() => this.setup(), 1000);
+      });
+    }
+
+    setup() {
+      this.findSplineCanvas();
+      this.findHighZIndexElements();
+      this.setupGlobalMouseTracking();
+      this.setupMutationObserver();
+      this.applyPointerEventsFix();
+      console.log('Spline Mouse Fixer initialized');
+    }
+
+    findSplineCanvas() {
+      this.splineCanvas = document.querySelector('canvas') ||
+              document.querySelector('[data-spline]') ||
+              document.querySelector('.spline-canvas') ||
+              document.querySelector('#spline-canvas');
+
+      if (!this.splineCanvas) {
+        console.warn('Spline canvas not found, retrying...');
+        setTimeout(() => this.findSplineCanvas(), 1000);
+      }
+    }
+
+    findHighZIndexElements() {
+      const allElements = document.querySelectorAll('*');
+      this.highZIndexElements.clear();
+
+      allElements.forEach(element => {
+        const computedStyle = window.getComputedStyle(element);
+        const zIndex = parseInt(computedStyle.zIndex);
+
+        if (zIndex > 100 ||
+                computedStyle.position === 'fixed' ||
+                computedStyle.position === 'absolute') {
+          this.highZIndexElements.add(element);
+        }
+      });
+
+      console.log(`Found ${this.highZIndexElements.size} high z-index elements`);
+    }
+
+    isInteractiveElement(element) {
+      if (!element) return false;
+
+      return this.interactiveSelectors.some(selector => {
+                try {
+                  return element.matches(selector);
+                } catch (e) {
+                  return false;
+                }
+              }) ||
+              element.hasAttribute('href') ||
+              element.hasAttribute('onclick') ||
+              element.hasAttribute('onmouseover') ||
+              element.hasAttribute('onmouseout') ||
+              element.hasAttribute('onmousedown') ||
+              element.hasAttribute('onmouseup') ||
+              element.style.cursor === 'pointer' ||
+              element.classList.contains('clickable') ||
+              element.classList.contains('interactive') ||
+              element.classList.contains('btn') ||
+              element.classList.contains('button') ||
+              element.tagName.toLowerCase() === 'button' ||
+              element.tagName.toLowerCase() === 'input' ||
+              element.tagName.toLowerCase() === 'select' ||
+              element.tagName.toLowerCase() === 'textarea' ||
+              element.tagName.toLowerCase() === 'a';
+    }
+
+    hasInteractiveChildren(element) {
+      if (!element) return false;
+      const children = element.querySelectorAll('*');
+      return Array.from(children).some(child => this.isInteractiveElement(child));
+    }
+
+    applyPointerEventsFix() {
+      this.highZIndexElements.forEach(element => {
+        if (this.isInteractiveElement(element) || this.hasInteractiveChildren(element)) {
+          element.style.pointerEvents = 'none';
+          const interactiveChildren = element.querySelectorAll(this.interactiveSelectors.join(','));
+          interactiveChildren.forEach(child => {
+            child.style.pointerEvents = 'auto';
+          });
+          if (this.isInteractiveElement(element)) {
+            element.style.pointerEvents = 'auto';
+          }
+        } else {
+          element.style.pointerEvents = 'none';
+        }
+      });
+
+      if (this.splineCanvas) {
+        this.splineCanvas.style.pointerEvents = 'auto';
+      }
+
+      const splineContainer = document.querySelector('.backround-3d');
+      if (splineContainer) {
+        splineContainer.style.pointerEvents = 'auto';
+      }
+    }
+
+    setupGlobalMouseTracking() {
+      let mouseX = 0;
+      let mouseY = 0;
+
+      const handleMouseMove = (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+
+        if (this.splineCanvas) {
+          const mouseEvent = new MouseEvent('mousemove', {
+            clientX: mouseX,
+            clientY: mouseY,
+            bubbles: true,
+            cancelable: true
+          });
+          this.splineCanvas.dispatchEvent(mouseEvent);
+        }
+
+        const customEvent = new CustomEvent('splineMouseMove', {
+          detail: {
+            x: mouseX,
+            y: mouseY,
+            normalizedX: (mouseX / window.innerWidth) * 2 - 1,
+            normalizedY: -(mouseY / window.innerHeight) * 2 + 1
+          }
+        });
+        document.dispatchEvent(customEvent);
+      };
+
+      document.addEventListener('mousemove', handleMouseMove, true);
+
+      ['mousedown', 'mouseup', 'click', 'mouseover', 'mouseout'].forEach(eventType => {
+        document.addEventListener(eventType, (event) => {
+          if (this.splineCanvas) {
+            const mouseEvent = new MouseEvent(eventType, {
+              clientX: event.clientX,
+              clientY: event.clientY,
+              bubbles: true,
+              cancelable: true
+            });
+            this.splineCanvas.dispatchEvent(mouseEvent);
+          }
+        }, true);
+      });
+    }
+
+    setupMutationObserver() {
+      const observer = new MutationObserver((mutations) => {
+        let shouldUpdate = false;
+
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach((node) => {
+              if (node.nodeType === Node.ELEMENT_NODE) {
+                const computedStyle = window.getComputedStyle(node);
+                const zIndex = parseInt(computedStyle.zIndex);
+
+                if (zIndex > 100 ||
+                        computedStyle.position === 'fixed' ||
+                        computedStyle.position === 'absolute') {
+                  shouldUpdate = true;
+                }
+              }
+            });
+          }
+        });
+
+        if (shouldUpdate) {
+          setTimeout(() => {
+            this.findHighZIndexElements();
+            this.applyPointerEventsFix();
+          }, 100);
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+
+    refresh() {
+      this.findSplineCanvas();
+      this.findHighZIndexElements();
+      this.applyPointerEventsFix();
+    }
+
+    addInteractiveSelectors(selectors) {
+      if (Array.isArray(selectors)) {
+        this.interactiveSelectors.push(...selectors);
+      } else {
+        this.interactiveSelectors.push(selectors);
+      }
+      this.refresh();
+    }
+
+    markAsInteractive(elements) {
+      if (typeof elements === 'string') {
+        elements = document.querySelectorAll(elements);
+      }
+      if (!elements.length && elements.nodeType) {
+        elements = [elements];
+      }
+
+      Array.from(elements).forEach(element => {
+        element.style.pointerEvents = 'auto';
+        element.classList.add('interactive');
+      });
+    }
+  }
+
+  const splineMouseFixer = new SplineMouseFixer();
+  window.splineMouseFixer = splineMouseFixer;
+
+  window.addEventListener('resize', () => {
+    splineMouseFixer.refresh();
+  });
+
+  window.markAsInteractive = function(selector) {
+    splineMouseFixer.markAsInteractive(selector);
+  };
+
+  window.addInteractiveSelectors = function(selectors) {
+    splineMouseFixer.addInteractiveSelectors(selectors);
+  };
+</script>
+
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>
