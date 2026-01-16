@@ -1,0 +1,717 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Universal CSS for Spline Mouse Tracking */
+
+/* Ensure the Spline canvas and container can always receive mouse events */
+canvas,
+.backround-3d,
+[data-spline],
+.spline-canvas {
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 0;
+}
+
+/* Base class for interactive elements - you can add this to any element you want to remain clickable */
+.interactive,
+.clickable,
+.spline-interactive {
+    pointer-events: auto !important;
+}
+
+/* Common interactive elements that should always work */
+a,
+button,
+input,
+select,
+textarea,
+[onclick],
+[href],
+.btn,
+.button {
+    pointer-events: auto !important;
+}
+
+/* Your existing styles - but now they'll be automatically managed */
+.logo,
+.club,
+.resources,
+.events,
+.members,
+.btn-signing,
+.menu-wrapper,
+.menu-background,
+.menu {
+    /* The JavaScript will automatically handle pointer-events */
+    /* Just add any specific styling you need */
+}
+
+/* Optional: Add this class to any future high z-index containers
+   that should be transparent to mouse events */
+.spline-transparent {
+    pointer-events: none !important;
+}
+
+/* Optional: Force any element to be interactive */
+.force-interactive {
+    pointer-events: auto !important;
+    cursor: pointer;
+}
+
+/* Ensure modal overlays, popups, etc. can still be controlled */
+.modal,
+.popup,
+.overlay,
+.dropdown,
+.tooltip {
+    pointer-events: auto !important;
+}
+
+/* Special handling for elements that contain both interactive and non-interactive parts */
+.mixed-interactive {
+    pointer-events: none;
+}
+
+.mixed-interactive .interactive,
+.mixed-interactive a,
+.mixed-interactive button,
+.mixed-interactive input,
+.mixed-interactive select,
+.mixed-interactive textarea,
+.mixed-interactive [onclick] {
+    pointer-events: auto !important;
+}
+
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', "Roboto Light", Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #171414;
+    color: #e7e7e7;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow: scroll;
+}
+
+/*Start of Menu Place Holder*/
+
+.menu-wrapper {
+    position: fixed;
+    display: inline-block;
+    margin: 1rem auto;
+    width: 100px;
+    height: 30px;
+    z-index: 1003; /* Keep this higher than backround-3d */
+    transition: all 0.2s ease-in;
+    pointer-events: none; /* Re-enable pointer events for menu wrapper */
+    transform: translateZ(0);
+}
+.menu-background:hover{
+    transition: opacity 0.4s ease-out;
+    opacity: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.menu-background {
+    opacity: 0.65;
+    position: absolute;
+    bottom: -21%;
+    left: 692%;
+    width: 105%;
+    z-index: 1003;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: opacity 0.4s ease-in;
+    pointer-events: auto; /* Re-enable pointer events for menu background */
+    will-change: opacity, box-shadow;
+}
+/*End of Transparent Place Holder*/
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    pointer-events: auto; /* Re-enable pointer events for menu */
+}
+
+
+
+
+
+.image-gradient2 {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+
+}
+
+.layer-blur2 {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    opacity: 100%;
+    box-shadow: 0 0 700px 15px white;
+    transform: rotate(-30deg);
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: -1;
+    will-change: opacity;
+}
+
+
+/* Container */
+.clubContainer{
+    width: 100%;
+    margin-left: 0;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+    background: rgba(23, 20, 20, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    pointer-events: none; /* Allow mouse events to pass through header */
+    transform: translateZ(0);
+}
+.header-scrolled{
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    background: rgba(23, 20, 20, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    pointer-events: none; /* Allow mouse events to pass through header when scrolled */
+}
+
+/*
+Bizzdom logo
+ */
+.logo{
+    font-family: "Baskerville Old Face",sans-serif;
+    top: 10%;
+    letter-spacing: 0.08rem;
+    transition: 0.4s ease-in-out;
+    text-decoration: none;
+    font-size: 2em;
+    color: #c5a876;
+    text-shadow: 0 0 35px navajowhite;
+    pointer-events: auto; /* Re-enable pointer events for logo */
+}
+
+.logo:hover{
+    text-shadow: 0 0 20px navajowhite;
+}
+.menu{
+    transition: 0.3s ease-in-out;
+    text-shadow: 0 0 10px navajowhite;
+    color: #f7e7ce;
+}
+.members{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 55%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+    pointer-events: auto; /* Re-enable pointer events for members link */
+}
+.members:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.club{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 33%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+    pointer-events: auto; /* Re-enable pointer events for club link */
+}
+.club:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.resources{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: inherit;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 40%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+    pointer-events: auto; /* Re-enable pointer events for resources link */
+}
+.resources:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.events{
+    top: 1.6rem;
+    font-family: "Altone Trial",sans-serif;
+    color: gold;
+    font-size: 1.02rem;
+    position: fixed;
+    left: 47%;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease-in-out;
+    pointer-events: auto; /* Re-enable pointer events for events link */
+}
+.events:hover{
+    color: #dbcb89;
+    text-shadow: 0 0 12px #dbcb89;
+}
+
+.btn-signing {
+    position: fixed;
+    right: 1.5rem;
+    background-color: #a7a7a7;
+    color: black;
+    font-family: "Altone Trial",sans-serif;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.4s ease-in-out;
+    cursor: pointer;
+    z-index: 999;
+    pointer-events: auto; /* Re-enable pointer events for sign-in button */
+}
+
+.btn-signing:hover {
+    transition: 0.4s ease-in-out;
+    background-color: #ffffff;
+    box-shadow: 0 1px 28px rgba(255,255,255,0.4);
+}
+.btn-signing-scrolled{
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 1px 20px rgba(255,255,255,0.4);
+}
+
+
+.backround-3d {
+    position: fixed;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    transition: none;
+    overflow: visible;
+}
+
+.backround-3d spline-viewer {
+    width: 100%; /* Make it scale to the container */
+    height: 100%; /* Set a fixed height */
+    /* Prevent it from exceeding the viewport height */
+    object-fit: cover; /* Adjust how the content fits inside */
+}
+
+.fade-in {
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 2s ease forwards; /* Include forwards in the shorthand */
+}
+
+@keyframes fadeIn {
+    0%, 60% {
+        opacity: 0; /* Stay invisible for the first 60% of the animation */
+    }
+    100% {
+        opacity: 1; /* Gradually fade in during the remaining 40% */
+    }
+}
+
+.ticket{
+    position: fixed;
+    right: -15rem;
+    animation: fadeIn;
+    transform: translateZ(0);
+}
+
+.white-box {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    height: 40px;
+    background: #f3f3f3;
+    z-index: 100;
+    animation: fadeIn 1.5s ease forwards;
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+/*Carousel events slider*/
+.wrapper {
+    position: relative;
+    top: 50vh; /* Adjust this to bring the first carousel into view */
+    left: 50%;
+    scale: 0.7;
+    top: 5rem;
+    left: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1004;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: stretch;
+    min-height: auto;
+    padding: 2rem 0;
+    /* The JavaScript will handle the transform for movement */
+}
+
+.carousel .card {
+    border: 3px white;
+    list-style: none;
+    background: white;
+    border-radius: 15px;
+    width: 350px;
+    height: 330px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(134, 129, 129, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border: white 10px;
+    animation: fadeInCards 1s ease-in-out forwards;
+    opacity: 0;
+    will-change: transform, box-shadow, opacity;
+}
+
+.carousel .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card .img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+}
+
+.card .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h2 {
+    color: #ffffff; /* White text for better contrast */
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Subtle shadow for readability */
+}
+
+.card span {
+    color: #f0f0f0; /* Light gray text for better readability */
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+    flex-grow: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Subtle shadow */
+}
+
+.img:hover{
+    transition: all 0.4s ease-out;
+    scale: 1.05;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for text contrast */
+    backdrop-filter: blur(20px); /* Retain the existing blur */
+}
+
+/* Replace your existing .title style with: */
+.title{
+    font-family: "Altone Trial",sans-serif;
+    color: #c5a876 !important; /* Dark color instead of light */
+}
+
+/* Add this new style for the title2 class: */
+.title2 {
+    font-family: "Altone Trial",sans-serif;
+    color: #ffffff !important;
+}
+
+.card .buttons {
+    font-family: "Altone Trial",sans-serif;
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1005;
+}
+
+@keyframes fadeInCards {
+    0%,80%{
+        opacity: 0;
+        transform: translateY(40px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at the original position */
+    }
+}
+
+/* Apply fade-in animation to cards */
+.carousel .card {
+    animation: fadeInCards 1s ease-in-out forwards;
+    opacity: 0; /* Ensure the cards are initially hidden */
+}
+
+/* Delay for each card to create a staggered effect */
+.carousel .card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.carousel .card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.carousel .card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+
+.register-button,
+.register-button2,
+.register-button3 {
+    pointer-events: auto;
+    font-family: "Altone Trial",sans-serif;
+    background: linear-gradient(135deg, #c5a876, #dbcb89);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(197, 168, 118, 0.3);
+    will-change: transform, box-shadow, background;
+}
+.date{
+    font-family: "Metropolis",sans-serif;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+.date2{
+    font-family: "Metropolis",sans-serif;
+    position: fixed;
+    bottom: 1.5rem;
+    color: white;
+    left: 1.5rem;
+}
+.date3{
+    font-family: "Metropolis";
+    position: fixed;
+    bottom: 1.5rem;
+    color: white;
+    left: 1.5rem;
+}
+.register-button:hover,
+.register-button2:hover,
+.register-button3:hover {
+    transition: all 0.6s ease-out;
+    scale: 1.05;
+    box-shadow: 0 6px 20px rgba(197, 168, 118, 0.4);
+    background: linear-gradient(135deg, #f8edbc, #ad8b51);
+}
+
+.wrapper2{
+    position: relative;
+    top: 100vh; /* Position it below the first carousel */
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1004;
+    margin-top: 5rem; /* Add some space between carousels */
+}
+
+
+
+
+.carousel-btn {
+    pointer-events: auto;
+    z-index: 1005;
+    height: 50px;
+    width: 50px;
+    background: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(134, 129, 129, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border: white 10px;
+    animation: fade-in;
+}
+
+.wrapper .carousel-btn.fa-angle-right,
+.wrapper2 .carousel-btn.fa-angle-right{
+    bottom: 0;
+    right: 15rem;
+}
+.wrapper .carousel-btn.fa-angle-left,
+.wrapper2 .carousel-btn.fa-angle-left{
+    bottom: 0;
+    left: 3.5rem;
+}
+
+@media (max-width: 1200px) {
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        z-index: 1000;
+        background: rgba(23, 20, 20, 0.25);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        height: 100px;
+        pointer-events: none; /* Allow mouse events to pass through header in mobile */
+        transform: translateZ(0);
+    }
+    nav{
+    }
+
+    .logo{
+        position: relative;
+        top: -10%;
+        left: -1.8rem;
+        pointer-events: auto; /* Re-enable pointer events for logo in mobile */
+    }
+
+    .club{
+        position: absolute;
+        top: 65%;
+        left: 0;
+        margin-left: 2rem;
+        font-family: "Altone Trial", sans-serif;
+        color: inherit;
+        font-size: 1.02rem;
+        text-decoration: none;
+        letter-spacing: 0.1rem;
+        transition: color 0.2s ease-in-out;
+        pointer-events: auto; /* Re-enable pointer events for club link in mobile */
+    }
+    .resources{
+        position: absolute;
+        top: 65%;
+        left: 20%;
+        margin-left: 2rem;
+        font-family: "Altone Trial", sans-serif;
+        color: inherit;
+        font-size: 1.02rem;
+        text-decoration: none;
+        letter-spacing: 0.1rem;
+        transition: color 0.2s ease-in-out;
+        pointer-events: auto; /* Re-enable pointer events for resources link in mobile */
+    }
+    .events{
+        position: absolute;
+        top: 65%;
+        left: 40%;
+        margin-left: 2rem;
+        font-family: "Altone Trial", sans-serif;
+        color: gold;
+        font-size: 1.02rem;
+        text-decoration: none;
+        letter-spacing: 0.1rem;
+        transition: color 0.2s ease-in-out;
+        pointer-events: auto; /* Re-enable pointer events for events link in mobile */
+    }
+    .members{
+        position: absolute;
+        top: 65%;
+        left: 63%;
+        margin-left: 2rem;
+        font-family: "Altone Trial", sans-serif;
+        color: inherit;
+        font-size: 1.02rem;
+        text-decoration: none;
+        letter-spacing: 0.1rem;
+        transition: color 0.2s ease-in-out;
+        pointer-events: auto; /* Re-enable pointer events for members link in mobile */
+    }
+    .btn-signing{
+        padding :0.6rem;
+        font-family: "Altone Trial", serif;
+        top: 18%;
+        pointer-events: auto; /* Re-enable pointer events for sign-in button in mobile */
+    }
+}
